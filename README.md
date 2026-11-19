@@ -6,7 +6,7 @@
 
 首先就是最最讨厌的硬编码,各种硬编码(路径,上游,静态CIDR什么的都懒得多说了),甚至ECH配置都是硬编码在"META_ECH_CONFIG"的(归属meta时直接注入,这是还要用户自己改并且定期更换么说是?)
 
-咱上面说的还不算什么,真正恶心到咱的是那个硬编码的域名列表,Total-ECH把X/Facebook/Instagram/Threads/WhatsApp这种站点写在代码里是什么水平捏?难道RememberOurPromise大佬是意识不到这里应该加个判断逻辑嘛？看看n-yarvex/CF-DOH,收到Type65后先查目标域名的A记录,只要确认IP落在CF官方的CIDR段里就拉 cloudflare-ech.com 的https记录,然后提取alpn+ech就合成应答哦~
+咱上面说的还不算什么,真正恶心到咱的是那个硬编码的域名列表,Total-ECH把 X/Facebook/Instagram/Threads/WhatsApp 这种站点写在代码里是什么水平捏?难道RememberOurPromise大佬是意识不到这里应该加个判断逻辑嘛？看看n-yarvex/CF-DOH,收到Type65后先查目标域名的A记录,只要确认IP落在CF官方的CIDR段里就拉 cloudflare-ech.com 的https记录,然后提取alpn+ech就合成应答哦~
 
 中间插一条刚刚发现的,Total甚至连注入路径出问题后的行为都不统一,返回空应答都不算小概率事件,真笑死咱惹,而咱的n-yarvex/CF-DOH都是明确fail-open滴,ECH那边有一旦有任何失败都直接回退到普通DoH转发,至少得保证先能正常解析对吧？
 

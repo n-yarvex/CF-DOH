@@ -1,4 +1,4 @@
-# doh-ech-worker
+2# doh-ech-worker
 
 A hardened, dependency-free **DNS-over-HTTPS (RFC 8484) proxy for Cloudflare Workers** that can transparently **inject Encrypted Client Hello (ECH) configuration** into `HTTPS` (type 65) DNS answers for domains served from Cloudflare's network.
 
@@ -356,8 +356,3 @@ Use `npx wrangler tail` to stream logs live.
 | `502 Upstream did not return JSON` | Configure `JSON_PATH` for providers whose JSON API is on a different path (e.g. `resolve`). |
 | `504 Upstream timeout` | The upstream did not answer within 5 s. |
 
----
-
-## License
-
-Add the license of your choice (for example MIT) before publishing.

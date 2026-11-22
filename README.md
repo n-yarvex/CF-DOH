@@ -1,4 +1,4 @@
-2# doh-ech-worker
+# doh-ech-worker
 
 A hardened, dependency-free **DNS-over-HTTPS (RFC 8484) proxy for Cloudflare Workers** that can transparently **inject Encrypted Client Hello (ECH) configuration** into `HTTPS` (type 65) DNS answers for domains served from Cloudflare's network.
 
